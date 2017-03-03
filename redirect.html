@@ -1,44 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Redirect to Profile</title>
-
-    <script>
-        $(document)
-            .ajaxStart(function(){console.log("hello")})
-            .ajaxStop(function(){console.log("Ajax Stopped.")})
-            .ajaxSuccess(function(){console.log("Ajax Success")})
-            .ajaxComplete(function(){console.log("Ajax Completed")})
-
-        $(document).ready(function(){
-            $.ajax({
-                url:"https://public-api.wordpress.com/rest/v1/sites/dotnetask.wordpress.com",
-                success: function(data){
-                    console.log(data)
-                    $("#user-name").text("User Name : ",data.name);
-                    $("#desc").text("Company : ",data.description);
-                    $("#url").text("Email : ",data.url);
-
-                },
-                error: function(){
-                    $("#user-name").text("User not found");
-                    $("#desc").text("User not found");
-                    $("#url").text("User not found");
-                }
-            })
-        })
-
-    </script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen" title="no title">
 </head>
+
+
+<input class="form-control btn btn-success" type="button" name="Submit" id="get-data" value="get-data"/>
+<div class="col-md-offset-6" id="div2">
+    <p id="user-name1" class="btn-info btn-md"></p>
+    <p id="company"  class="btn-info btn-md"></p>
+    <p id="email" class="btn-info btn-md"></p>
+    <p id="created-at" class="btn-info btn-md"></p>
+    <p id="location" class="btn-info btn-md"></p>
+    <p id="url1" class="btn-info btn-md"></p>
+
+</div>
+
+
+<script  src="https://code.jquery.com/jquery-3.1.1.min.js"  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    $(document)
+        .ajaxStart(function(){  $("#user-image").attr("src","progress.gif");   })
+        .ajaxStop(function(){console.log("Ajax Stopped.")})
+        .ajaxSuccess(function(){console.log("Ajax Success")})
+        .ajaxComplete(function(){console.log("Ajax Completed")})
+
+    $("#get-data").on("click",function(){
+        $.ajax({
+            url:"https://api.github.com/users/nehabhardwaj01",
+            success: function(data){
+                console.log(data)
+                $("#user-image").attr("src",data.avatar_url);
+                $("#user-name1").text("User Name : ",data.name);
+                $("#company").text("Company : ",data.company);
+                $("#email").text("Email : ",data.email);
+                $("#created-at").text("Created At : ",data.created_at);
+                $("#location").text("Location : ",data.location);
+                $("#url1").text("User id is : "+data.url);
+            },
+            error: function(){
+                $("#user-image").attr("src","no-user.png");
+                $("#user-name1").text("User not found");
+            }
+        })
+    })
+</script>
+
 <body>
 
 hello world
-<p id="user-name" class="btn-info btn-md"></p>
-<p id="desc"  class="btn-info btn-md"></p>
-<p id="url" class="btn-info btn-md"></p>
-
 
 </body>
 </html>

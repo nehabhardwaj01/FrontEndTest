@@ -2,8 +2,13 @@
     height: 500px;
 }
 
+#div2{
+    width: 1250px;
+}
+
 #imageDiv{
     opacity: 0.35 ;
+    width: 1250px;
     background-image: url(image.jpg);
     height: 500px;
     background-size: 1250px 550px;
@@ -12,8 +17,11 @@
 }
 
 #textDiv{
-    align-items: center;
+    background-color: aquamarine;
+    width: 1250px;
 
+    border-bottom-width: 5px;
+    border-bottom: solid blue;
 }
 
 #circleDiv{
@@ -31,11 +39,12 @@
 }
 
 #div3a{
-    background-color: aquamarine;
+    height:150px;
 }
 
 #div3b{
     height: 350px;
+    width: 1250px;
 }
 
 #div4{
@@ -61,3 +70,7 @@ h1,h2,h3,h4,h5,h6{
 #main{
     width: 1250px;
  }
+
+p{
+    height:20px;
+}
