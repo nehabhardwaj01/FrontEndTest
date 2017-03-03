@@ -1,0 +1,63 @@
+#div1{
+    height: 500px;
+}
+
+#imageDiv{
+    opacity: 0.35 ;
+    background-image: url(image.jpg);
+    height: 500px;
+    background-size: 1250px 550px;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#textDiv{
+    align-items: center;
+
+}
+
+#circleDiv{
+    position: absolute;
+    top: 150px;
+    left: 523px;
+    bottom: 150px;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-image: url(image.jpg);
+    background-size: 200px 220px;
+    -webkit-filter: saturate(400%); /* Safari */
+    filter: saturate(400%);
+}
+
+#div3a{
+    background-color: aquamarine;
+}
+
+#div3b{
+    height: 350px;
+}
+
+#div4{
+    background-color: crimson;
+    height: 100px;
+    border-bottom-width: 5px;
+    border-bottom: solid blue;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: initial;
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    margin: 2px;
+    margin: 2px;
+}
+
+#textDiv form{
+    text-align: center;
+}
+
+#main{
+    width: 1250px;
+ }

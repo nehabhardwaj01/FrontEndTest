@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirect to Profile</title>
+
+    <script>
+        $(document)
+            .ajaxStart(function(){console.log("hello")})
+            .ajaxStop(function(){console.log("Ajax Stopped.")})
+            .ajaxSuccess(function(){console.log("Ajax Success")})
+            .ajaxComplete(function(){console.log("Ajax Completed")})
+
+        $(document).ready(function(){
+            $.ajax({
+                url:"https://public-api.wordpress.com/rest/v1/sites/dotnetask.wordpress.com",
+                success: function(data){
+                    console.log(data)
+                    $("#user-name").text("User Name : ",data.name);
+                    $("#desc").text("Company : ",data.description);
+                    $("#url").text("Email : ",data.url);
+
+                },
+                error: function(){
+                    $("#user-name").text("User not found");
+                    $("#desc").text("User not found");
+                    $("#url").text("User not found");
+                }
+            })
+        })
+
+    </script>
+
+</head>
+<body>
+
+hello world
+<p id="user-name" class="btn-info btn-md"></p>
+<p id="desc"  class="btn-info btn-md"></p>
+<p id="url" class="btn-info btn-md"></p>
+
+
+</body>
+</html>
